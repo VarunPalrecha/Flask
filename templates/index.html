@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Prediction</title>
+</head>
+<body>
+    <h1>Sales Prediction</h1>
+    <form method="POST" action="/predict">
+        <label for="positive_reviews">Enter the number of new positive reviews:</label>
+        <input type="number" name="positive_reviews" id="positive_reviews" required>
+        <button type="submit">Predict Sales</button>
+    </form>
+
+    {% if error_message %}
+    <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+
+    {% if predicted_sales is defined %}
+    <p>Predicted Sales for New Positive Reviews: {{ predicted_sales }}</p>
+    {% endif %}
+</body>
+</html>
